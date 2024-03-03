@@ -10,5 +10,6 @@ router.get("/server", (req, res) => {
 router.use("/user", require("./Users/users"))
 router.use("/profile", isloggedIn, require("./Profiles/profiles"))
 router.use("/trips", isloggedIn, require("./Trips/trips"))
+router.use("/hotels", require("./Hotels/hotels"))
 
 module.exports = router

@@ -1,5 +1,5 @@
 require("dotenv").config()
-const mysql = require("mysql")
+const mysql = require("mysql2")
 const AppError = require("../Error/custom_app_error")
 
 const connection = mysql.createConnection({
