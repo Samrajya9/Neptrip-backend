@@ -19,6 +19,7 @@ const create_trips_service = service_error_handler(async (req, res) => {
 })
 const view_trips_service = service_error_handler(async (req, res) => {
   const user_id = req.id
+  console.log(user_id)
   const user_trips = await trips.findOne({
     user_id,
   })

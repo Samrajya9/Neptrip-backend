@@ -97,5 +97,49 @@ class Entity {
       })
     })
   }
+
+  mostOccur(options) {
+    // const datafields = Object.keys(data)
+    const query = `SELECT ${options}, COUNT(*) AS occurrence_count
+  FROM ${this.table}
+  GROUP BY ${options}
+  ORDER BY occurrence_count DESC;
+  `
+    console.log(query)
+    return new Promise((resolve, reject) => {
+      connection.query(query, (err, result) => {
+        if (err) {
+          reject(err)
+        } else {
+          if (result.length === 0) {
+            resolve(false)
+          } else {
+            resolve(structuredClone(result))
+          }
+        }
+      })
+    })
+  }
+  query(params, preference_names) {
+    const query = `SELECT * FROM ${this.table} WHERE ${params} IN (${Array(
+      preference_names.length
+    )
+      .fill("?")
+      .join(",")})`
+    console.log(query)
+    return new Promise((resolve, reject) => {
+      connection.query(query, preference_names, (err, result) => {
+        if (err) {
+          reject(err)
+        } else {
+          if (result.length === 0) {
+            resolve(false)
+          } else {
+            resolve(structuredClone(result))
+          }
+        }
+      })
+    })
+  }
 }
 module.exports = Entity

@@ -11,5 +11,12 @@ router.use("/user", require("./Users/users"))
 router.use("/profile", isloggedIn, require("./Profiles/profiles"))
 router.use("/trips", isloggedIn, require("./Trips/trips"))
 router.use("/hotels", require("./Hotels/hotels"))
+router.use("/places", isloggedIn, require("./Places/palces"))
+
+router.use(
+  "/recommendation",
+  isloggedIn,
+  require("./Recommendation/recommendation")
+)
 
 module.exports = router

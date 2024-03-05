@@ -11,8 +11,10 @@ const hotelsSchema = `
 CREATE TABLE IF NOT EXISTS hotels (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255),
-  content TEXT
+  content TEXT,
+  category VARCHAR(50)
 );
+
 `
 
 connection.query(hotelsSchema, (err) => {

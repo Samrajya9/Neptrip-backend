@@ -23,7 +23,7 @@ const login_service = service_error_handler(async (req, res) => {
       maxAge: 86400000, // 24 hours in milliseconds (adjust as needed)
       httpOnly: true, // Cookie is only accessible via HTTP(S)
       secure: false, // Cookie can be sent over HTTP
-      sameSite: "Strict", // Restrict cross-origin cookie sharing
+      sameSite: "None",
     })
     res.cookie("cookie2", "value2")
 
