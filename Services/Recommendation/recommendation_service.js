@@ -99,6 +99,7 @@ async function calculateRating(categoryRatingForUser, noRatingDest) {
   // Iterate over destinations with no ratings
   for (const element of noRatingDest) {
     let futureRating = 0
+    console.log(element)
     const categoryArray = element.category_names.split(",")
 
     // Calculate future rating based on category preferences

@@ -20,7 +20,7 @@ const view_profile_service = service_error_handler(async (req, res) => {
 })
 
 const create_profile_service = service_error_handler(async (req, res) => {
-  const profile_pic_url = req.profile_pic_url
+  const profile_pic_url = req._picture_url
   const { ...data } = req.body
   const user_id = req.id
   data.profile_pic_url = profile_pic_url

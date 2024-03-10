@@ -4,7 +4,7 @@ const {
   update_profile_controller,
   delete_profile_controller,
 } = require("../../Controllers/Profiles/profile")
-const { upload } = require("../../Middlewares/multer/multer")
+const { upload } = require("../../Middlewares/multer/multerForProfile")
 
 const router = require("express").Router()
 

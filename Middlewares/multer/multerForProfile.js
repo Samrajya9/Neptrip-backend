@@ -1,16 +1,21 @@
+require("dotenv").config()
+
 const multer = require("multer")
 const path = require("path")
 
-const destinationDirectory = path.join(__dirname, "../../profilePic")
+const destinationDirectory = path.join(__dirname, "../../Picture/ProfilePic")
+
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, destinationDirectory)
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + "--" + file.originalname)
-    req.profile_pic_url = `http://localhost:3000/profilePic/${file.originalname}`
+    const filename = Date.now() + "--" + file.originalname
+    cb(null, filename)
+    req._picture_url = `http://localhost:${process.env.PORT}/Picture/ProfilePic/${filename}`
   },
 })
+
 const upload = multer({ storage: fileStorage })
 
 module.exports = {
