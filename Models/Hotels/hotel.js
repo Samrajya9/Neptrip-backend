@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS hotels (
   content TEXT,
   category VARCHAR(50)
 );
-
+  
 `
 
 connection.query(hotelsSchema, (err) => {

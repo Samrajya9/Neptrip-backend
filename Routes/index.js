@@ -13,6 +13,8 @@ router.use("/trips", isloggedIn, require("./Trips/trips"))
 router.use("/hotels", require("./Hotels/hotels"))
 router.use("/places", isloggedIn, require("./Places/palces"))
 
+router.use("/destinations", isloggedIn, require("./Destinations/destinations"))
+
 router.use(
   "/recommendation",
   isloggedIn,

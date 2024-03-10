@@ -1,12 +1,12 @@
 require("dotenv").config()
 require("./Models/Users/users.js")
 require("./Models/Profiles/profiles.js")
-require("./Models/Trips/trips.js")
-require("./Models/Hotels/hotel.js")
-require("./Models/Cities/cities.js")
-require("./Models/Places/places.js")
-require("./Models/Searches/searches.js")
-require("./Models/UserPreference/userPreference.js")
+require("./Models/District/district.js")
+require("./Models/Categories/categories .js")
+require("./Models/Destination/destination.js")
+require("./Models/DestinationCategory/destinationCategory.js")
+require("./Models/DestinationRating/destinationRatings.js")
+
 const express = require("express")
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
@@ -17,6 +17,7 @@ const app = express()
 app.use(
   cors({
     origin: "http://localhost:3000",
+    credentials: true, // Allow credentials
   })
 )
 app.use(cookieParser())
@@ -27,7 +28,7 @@ app.use("/profilePic", express.static("./profilePic"))
 app.use(router)
 app.use(error_handler_middleware)
 
-const PORT = 5000
+const PORT = process.env.PORT
 
 app.listen(PORT, () => {
   console.log(`App ruuning on http://localhost:${PORT}`)

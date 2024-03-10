@@ -3,17 +3,17 @@ const mysql = require("mysql2")
 const AppError = require("../Error/custom_app_error")
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
+  host: process.env.HOST,
+  user: process.env.USER,
   password: "",
-  database: "rejita_project",
+  database: process.env.DATABASE,
 })
 
 connection.connect((err) => {
   if (err) {
     throw new AppError(`Error in connceting to database`, 500)
   }
-  console.log(`Connected to database to ${process.env.database}`)
+  console.log(`Connected to database to ${process.env.DATABASE}`)
 })
 
 module.exports = connection
