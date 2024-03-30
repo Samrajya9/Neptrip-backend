@@ -1,4 +1,4 @@
-const connection = require("../connection")
+const connection = require("../connection");
 
 // const hotels = {
 //   journey_id: "INT",
@@ -12,16 +12,15 @@ CREATE TABLE IF NOT EXISTS hotels (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255),
   content TEXT,
-  category VARCHAR(50)
+  district_id INT,
+  FOREIGN KEY (district_id) REFERENCES districts(id)
 );
-  
-`
-
+`;
 connection.query(hotelsSchema, (err) => {
   if (err) {
-    console.error(`Error creating hotels schema: ${err.message}`)
-    connection.end() // Corrected function invocation
-    return
+    console.error(`Error creating hotels schema: ${err.message}`);
+    connection.end(); // Corrected function invocation
+    return;
   }
-  console.log("Hotels schema created successfully")
-})
+  console.log("Hotels schema created successfully");
+});

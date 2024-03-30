@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "mkdir Picture && mkdir Picture/DestinationPic && mkdir Picture/ProfilePic && npm i",
+    "PictureDir": "mkdir Picture",
+    "setupDir": "cd Picture && mkdir DestinationPic && mkdir ProfilePicture && cd ..",
+    "setup": "npm run PictureDir && npm run setupDir && npm i",
     "App": "nodemon app.js"
   },
   "keywords": [],
